@@ -1,8 +1,8 @@
 {
   "id": "dm-questlog",
   "title": "DM Questlog",
-  "description": "Ein einfaches Questlog für D&D 5e: Der Spielleiter legt Spieler-Quests an, Spieler nehmen sie an oder lehnen sie ab, und erfolgreiche Quests vergeben Inspiration.",
-  "version": "0.1.0",
+  "description": "Ein Questlog für D&D 5e: Der Spielleiter legt Spieler-Quests an, Spieler nehmen sie an oder lehnen sie ab, erfolgreiche Quests vergeben Inspiration mit optionaler So-Inspired-Unterstützung.",
+  "version": "0.5.0",
   "authors": [
     {
       "name": "Alexander Kramer / ChatGPT"
@@ -22,6 +22,13 @@
           "minimum": "5.0.0",
           "verified": "5.3.3"
         }
+      }
+    ],
+    "recommends": [
+      {
+        "id": "so-inspired",
+        "type": "module",
+        "manifest": "https://github.com/mysurvive/so-inspired/releases/latest/download/module.json"
       }
     ]
   },

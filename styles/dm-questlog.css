@@ -23,57 +23,100 @@
 .dmql-panel {
   position: fixed;
   top: 88px;
-  right: 0;
+  right: 12px;
   z-index: 100;
-  width: 380px;
-  max-width: calc(100vw - 28px);
+  width: 420px;
+  max-width: calc(100vw - 24px);
   height: calc(100vh - 112px);
+  min-width: 280px;
+  min-height: 170px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  resize: both;
   background: rgba(24, 22, 19, 0.97);
   color: #efe6d0;
   border: 1px solid rgba(255, 255, 255, 0.16);
-  border-right: 0;
-  border-radius: 12px 0 0 12px;
+  border-radius: 12px;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.55);
-  transition: transform 180ms ease-in-out;
 }
 
 .dmql-panel.dmql-collapsed {
-  transform: translateX(calc(100% + 12px));
+  display: none;
 }
 
 .dmql-panel.dmql-open {
-  transform: translateX(0);
+  display: flex;
+}
+
+.dmql-panel.dmql-dragging {
+  user-select: none;
+  opacity: 0.94;
+}
+
+.dmql-panel.dmql-compact {
+  min-width: 260px;
+  min-height: 150px;
 }
 
 .dmql-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 14px;
+  gap: 10px;
+  padding: 10px 12px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.26);
+  cursor: move;
+  flex: 0 0 auto;
 }
 
 .dmql-header h2,
 .dmql-body h3,
-.dmql-quest h4 {
+.dmql-quest h4,
+.dmql-backup h4 {
   margin: 0;
   color: #f7e4a4;
 }
 
-.dmql-close {
+.dmql-header h2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dmql-window-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+}
+
+.dmql-header-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 28px;
+  padding: 4px 7px;
   color: #efe6d0;
-  background: transparent;
-  border: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+}
+
+.dmql-header-button:hover {
+  filter: brightness(1.15);
+}
+
+.dmql-header-button span {
+  font-size: 12px;
 }
 
 .dmql-body {
-  overflow-y: auto;
+  overflow: auto;
   padding: 12px;
+  flex: 1 1 auto;
 }
 
 .dmql-card {
@@ -94,8 +137,13 @@
 
 .dmql-card input,
 .dmql-card textarea,
-.dmql-card select {
+.dmql-card select,
+.dmql-filter select {
   width: 100%;
+}
+
+.dmql-card input[type="file"] {
+  padding: 4px 0;
 }
 
 .dmql-checkbox {
@@ -110,6 +158,31 @@
 
 .dmql-log h3 {
   margin: 10px 0;
+}
+
+.dmql-log-header {
+  display: grid;
+  grid-template-columns: 1fr minmax(160px, 220px);
+  gap: 10px;
+  align-items: end;
+  margin-bottom: 8px;
+}
+
+.dmql-log-header h3 {
+  margin: 0 0 5px;
+}
+
+.dmql-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #efe6d0;
+  font-weight: 600;
+}
+
+.dmql-filter span {
+  font-size: 12px;
+  color: #d8cfbf;
 }
 
 .dmql-quest-head {
@@ -168,7 +241,7 @@
 
 .dmql-meta div {
   display: grid;
-  grid-template-columns: 86px 1fr;
+  grid-template-columns: 96px 1fr;
   gap: 8px;
   margin-bottom: 3px;
 }
@@ -216,25 +289,116 @@
   font-style: italic;
 }
 
-.dmql-quest.is-success {
+.dmql-quest.is-success,
+.dmql-title-list li.is-success {
   border-color: rgba(96, 210, 120, 0.65);
   background: rgba(33, 90, 40, 0.32);
 }
 
 .dmql-quest.is-success h4,
-.dmql-quest.is-success .dmql-result {
+.dmql-quest.is-success .dmql-result,
+.dmql-title-list li.is-success .dmql-title-list-title {
   color: #8dff9c;
 }
 
-.dmql-quest.is-failed {
+.dmql-quest.is-failed,
+.dmql-title-list li.is-failed {
   border-color: rgba(225, 70, 70, 0.7);
   background: rgba(105, 22, 22, 0.34);
 }
 
-.dmql-quest.is-failed h4 {
+.dmql-quest.is-failed h4,
+.dmql-title-list li.is-failed .dmql-title-list-title {
   color: #ff8e8e;
 }
 
 .dmql-quest.is-declined {
   opacity: 0.72;
+}
+
+.dmql-settings details {
+  width: 100%;
+}
+
+.dmql-settings summary {
+  cursor: pointer;
+  color: #f7e4a4;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.dmql-settings summary:hover {
+  filter: brightness(1.15);
+}
+
+.dmql-settings input[type="text"] {
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+}
+
+.dmql-settings hr {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  margin: 12px 0;
+}
+
+.dmql-backup h4 {
+  margin-bottom: 6px;
+}
+
+.dmql-backup .dmql-actions {
+  margin: 8px 0 10px;
+}
+
+.dmql-compact .dmql-body {
+  padding: 10px;
+}
+
+.dmql-compact-card {
+  margin-bottom: 0;
+}
+
+.dmql-title-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.dmql-title-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 7px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.dmql-title-list-title {
+  font-weight: 700;
+  color: #f7e4a4;
+  line-height: 1.2;
+}
+
+.dmql-title-list-player {
+  font-size: 11px;
+  color: #d8cfbf;
+}
+
+@media (max-width: 600px) {
+  .dmql-panel {
+    width: calc(100vw - 24px);
+    height: calc(100vh - 112px);
+  }
+
+  .dmql-log-header {
+    grid-template-columns: 1fr;
+  }
+
+  .dmql-header-button span {
+    display: none;
+  }
 }
