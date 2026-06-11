@@ -34,7 +34,7 @@
   flex-direction: column;
   overflow: hidden;
   resize: both;
-  background: rgba(24, 22, 19, 0.97);
+  background: rgba(24, 22, 19, var(--dmql-window-opacity, 0.97));
   color: #efe6d0;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 12px;
@@ -336,6 +336,15 @@
   font-size: 12px;
 }
 
+.dmql-range-label small {
+  color: #d8cfbf;
+  font-weight: 400;
+}
+
+.dmql-range-label input[type="range"] {
+  accent-color: #f7e4a4;
+}
+
 .dmql-settings hr {
   border: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
@@ -400,5 +409,42 @@
 
   .dmql-header-button span {
     display: none;
+  }
+}
+
+.dmql-sound-field.is-disabled {
+  opacity: 0.65;
+}
+
+.dmql-file-picker {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 6px;
+  align-items: center;
+}
+
+.dmql-file-value {
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  padding: 5px 8px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.16);
+  color: #efe6d0;
+  font-weight: normal;
+}
+
+.dmql-file-picker button[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 520px) {
+  .dmql-file-picker {
+    grid-template-columns: 1fr;
   }
 }

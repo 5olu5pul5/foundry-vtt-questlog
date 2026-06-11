@@ -13,10 +13,24 @@ Ein kleines Foundry-VTT-Modul für D&D 5e.
 - Erfolgreiche Quests werden grün markiert und vergeben dem zugeordneten Charakter Inspiration.
 - Fehlgeschlagene Quests werden rot im GM-Log markiert und aus dem Spielerlog entfernt.
 - Der GM sieht immer alle Quests, neueste zuerst.
-- Sounds, Sprache und Inspirationsmodus sind im GM-Questlog-Panel und in den Foundry-Moduleinstellungen bearbeitbar.
+- Sounds, Sprache, Fenstertransparenz und Inspirationsmodus sind im GM-Questlog-Panel und in den Foundry-Moduleinstellungen bearbeitbar.
 - Der GM kann das Questlog filtern: alle Quests, aktive Quests, inaktive Quests oder einzelne Spieler.
 - Das Questlog kann verschoben, in der Größe verändert, kompakt angezeigt oder vollständig minimiert werden.
-- Export und Import sichern Quests inklusive wichtiger Moduleinstellungen als JSON-Datei.
+- Export und Import sichern Quests inklusive wichtiger Moduleinstellungen als JSON-Datei. Dazu gehören auch die Soundpfade, Sprache, Fenstertransparenz und der Inspirationsmodus.
+
+## Neu in Version 0.5.2
+
+- Die Soundauswahl im GM-Konfigurationsbereich verwendet jetzt Foundrys nativen FilePicker für Audiodateien.
+- Die Soundeinstellungen in Foundrys Moduleinstellungen sind ebenfalls als Audio-FilePicker registriert.
+- Im GM-Panel werden keine frei editierbaren Pfad-Textboxen mehr angezeigt; stattdessen gibt es pro Sound einen Button „Sound auswählen“ und eine reine Pfadanzeige.
+- Wenn der FilePicker nicht verfügbar ist oder keine Berechtigung besteht, werden die Soundauswahl-Buttons deaktiviert.
+- Uploads laufen vollständig über den Foundry-FilePicker. In Foundry v13 können Uploads je nach Zielordner geschützt oder deaktiviert sein; wähle dann einen erlaubten Ordner, z. B. `assets` oder einen Weltordner.
+
+## Neu in Version 0.5.1
+
+- Transparenzslider für das Questlog-Fenster im GM-Konfigurationsbereich.
+- Zusätzliche Foundry-Moduleinstellung „Fenstertransparenz“ mit Bereich von 35 % bis 100 %.
+- Der Transparenzwert wird im Export/Import-Backup mitgesichert.
 
 ## Neu in Version 0.5.0
 
@@ -32,6 +46,7 @@ Ein kleines Foundry-VTT-Modul für D&D 5e.
   - Inspirationsmodus
   - Sprache
   - Soundpfade
+  - Fenstertransparenz
 - Import ersetzt das vorhandene Questlog nach Bestätigung.
 - Fenster ist per Kopfzeile verschiebbar.
 - Fenster ist per Resize-Griff unten rechts in der Größe veränderbar.
@@ -58,9 +73,19 @@ Das Modul unterstützt drei Modi:
 
 Wichtig: So Inspired erwartet, dass der jeweilige Spieler in der User-Konfiguration einen Charakter zugewiesen hat. DM Questlog verwendet ebenfalls den zugewiesenen Charakter (`user.character`) für die Vergabe.
 
+## Fenstertransparenz
+
+Im GM-Questlog unter **Modulkonfiguration** gibt es einen Slider „Fenstertransparenz“.
+
+- 100 % bedeutet vollständig sichtbar.
+- Niedrigere Werte machen das Questlog-Fenster transparenter.
+- Der Wert wird als Welt-Einstellung gespeichert und im Export/Import-Backup mitgesichert.
+
 ## Sounds anpassen
 
-Die drei Soundpfade können entweder über **Configure Settings > Module Settings > DM Questlog** oder direkt im Questlog-Panel des Spielleiters unter **Modulkonfiguration** geändert werden.
+Die drei Sounds können entweder über **Configure Settings > Module Settings > DM Questlog** oder direkt im Questlog-Panel des Spielleiters unter **Modulkonfiguration** geändert werden.
+
+Ab Version 0.5.2 wird dafür Foundrys nativer Audio-FilePicker verwendet. Im GM-Panel gibt es keine frei editierbaren Textboxen mehr: Du klickst auf **Sound auswählen**, wählst eine Audiodatei aus oder lädst über den Foundry-FilePicker eine Datei hoch. Der gewählte Pfad wird nur angezeigt und beim Speichern übernommen.
 
 Standardpfade:
 
@@ -68,7 +93,11 @@ Standardpfade:
 - `modules/dm-questlog/sounds/success.wav`
 - `modules/dm-questlog/sounds/failure.wav`
 
-Du kannst eigene Sounds aus deinem Foundry-Data-Verzeichnis eintragen, z. B. `sounds/mein-sound.ogg`.
+Hinweise:
+
+- Unterstützte Audioformate hängen von Foundry ab, typischerweise z. B. `.ogg`, `.mp3`, `.wav`, `.flac`, `.m4a` und `.webm`.
+- Falls der FilePicker nicht verfügbar ist oder die Berechtigung fehlt, werden die Auswahlbuttons deaktiviert.
+- Falls der Upload-Button im FilePicker ausgegraut ist, ist der aktuelle Zielordner geschützt. Wähle oder erstelle dann einen erlaubten Ordner, z. B. `assets` oder einen Ordner innerhalb der aktiven Welt.
 
 ## Export / Import
 
@@ -94,6 +123,8 @@ Beim Import werden vorhandene Questdaten ersetzt. Vor einem Modulupdate empfiehl
 
 ## Versionen
 
+- 0.5.2: Soundauswahl über Foundrys Audio-FilePicker, inklusive deaktivierter Buttons bei fehlender Verfügbarkeit/Berechtigung.
+- 0.5.1: Transparenzslider für das Questlog-Fenster, inklusive Export/Import.
 - 0.5.0: Filter, Export/Import, verschiebbares und skalierbares Fenster, Kompaktmodus, Sprachauswahl Deutsch/Englisch/Spanisch/Französisch.
 - 0.2.0: So-Inspired-Kompatibilität, auswählbarer Inspirationsmodus, editierbare Soundpfade im GM-Panel.
 - 0.1.0: Startversion für Foundry VTT v13 und D&D 5e v5.x.

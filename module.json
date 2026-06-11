@@ -2,7 +2,7 @@
   "id": "dm-questlog",
   "title": "DM Questlog",
   "description": "Ein Questlog für D&D 5e: Der Spielleiter legt Spieler-Quests an, Spieler nehmen sie an oder lehnen sie ab, erfolgreiche Quests vergeben Inspiration mit optionaler So-Inspired-Unterstützung.",
-  "version": "0.5.0",
+  "version": "0.5.2",
   "authors": [
     {
       "name": "Alexander Kramer / ChatGPT"

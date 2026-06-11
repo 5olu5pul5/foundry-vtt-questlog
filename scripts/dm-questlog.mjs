@@ -3,6 +3,7 @@ const SOCKET = `module.${MODULE_ID}`;
 const STATE_SETTING = "state";
 const INSPIRATION_MODE_SETTING = "inspirationMode";
 const LANGUAGE_SETTING = "language";
+const OPACITY_SETTING = "windowOpacity";
 const FIRST_RUN_SETTING = "firstRunNoticeShown";
 const SO_INSPIRED_ID = "so-inspired";
 
@@ -51,6 +52,8 @@ const TRANSLATIONS = {
     moduleConfiguration: "Modulkonfiguration",
     inspirationSystem: "Inspirations-System",
     language: "Sprache",
+    windowOpacity: "Fenstertransparenz",
+    windowOpacityValue: "{value}% sichtbar",
     soundAccept: "Sound: Quest angenommen",
     soundSuccess: "Sound: Quest erfolgreich",
     soundFailure: "Sound: Quest fehlgeschlagen",
@@ -102,7 +105,7 @@ const TRANSLATIONS = {
     modeStandard: "D&D-5e-Standard: Boolean-Inspiration",
     modeSoInspired: "So Inspired: Inspiration stapeln",
     unknownPlayer: "Unbekannter Spieler",
-    exportDescription: "Exportiert Quests, Soundpfade, Sprache und Inspirationsmodus als JSON-Datei. Beim Import werden vorhandene Quests ersetzt.",
+    exportDescription: "Exportiert Quests, Soundpfade, Sprache, Transparenz und Inspirationsmodus als JSON-Datei. Beim Import werden vorhandene Quests ersetzt.",
     importConfirm: "Vorhandenes Questlog durch die importierte Datei ersetzen?",
     importSuccess: "Questlog-Backup wurde importiert.",
     exportSuccess: "Questlog-Backup wurde erstellt.",
@@ -111,6 +114,7 @@ const TRANSLATIONS = {
     settingsSaved: "DM-Questlog-Einstellungen gespeichert.",
     invalidInspirationMode: "Ungültiger Inspirationsmodus.",
     invalidLanguage: "Ungültige Sprache.",
+    invalidOpacity: "Ungültiger Transparenzwert.",
     questCreated: "Quest „{title}“ wurde erstellt.",
     fillRequired: "Bitte Spieler, Titel und Kurzbeschreibung ausfüllen.",
     playerAcceptedQuest: "{player} hat die Quest „{title}“ angenommen.",
@@ -140,7 +144,12 @@ const TRANSLATIONS = {
     firstRunSoInspiredMissing: "So Inspired wurde nicht als aktives Modul erkannt. Der Auto-Modus nutzt die normale D&D-5e-Inspiration.",
     dragHint: "Fenster per Kopfzeile ziehen; Größe unten rechts ändern.",
     placeholderTitle: "z. B. Der verschwundene Kurier",
-    placeholderDescription: "Was soll der Charakter tun?"
+    placeholderDescription: "Was soll der Charakter tun?",
+    chooseSound: "Sound auswählen",
+    clearSound: "Sound entfernen",
+    noSoundSelected: "Kein Sound ausgewählt",
+    selectedSound: "Ausgewählter Sound",
+    filePickerUnavailable: "Dateibrowser nicht verfügbar oder keine Berechtigung."
   },
   en: {
     questlog: "Quest Log",
@@ -151,6 +160,8 @@ const TRANSLATIONS = {
     moduleConfiguration: "Module configuration",
     inspirationSystem: "Inspiration system",
     language: "Language",
+    windowOpacity: "Window transparency",
+    windowOpacityValue: "{value}% visible",
     soundAccept: "Sound: quest accepted",
     soundSuccess: "Sound: quest successful",
     soundFailure: "Sound: quest failed",
@@ -202,7 +213,7 @@ const TRANSLATIONS = {
     modeStandard: "D&D 5e default: boolean inspiration",
     modeSoInspired: "So Inspired: stack inspiration",
     unknownPlayer: "Unknown player",
-    exportDescription: "Exports quests, sound paths, language and inspiration mode as a JSON file. Import replaces the current quests.",
+    exportDescription: "Exports quests, sound paths, language, transparency and inspiration mode as a JSON file. Import replaces the current quests.",
     importConfirm: "Replace the current quest log with the imported file?",
     importSuccess: "Quest log backup imported.",
     exportSuccess: "Quest log backup created.",
@@ -211,6 +222,7 @@ const TRANSLATIONS = {
     settingsSaved: "DM Questlog settings saved.",
     invalidInspirationMode: "Invalid inspiration mode.",
     invalidLanguage: "Invalid language.",
+    invalidOpacity: "Invalid transparency value.",
     questCreated: "Quest “{title}” was created.",
     fillRequired: "Please fill in player, title and short description.",
     playerAcceptedQuest: "{player} accepted the quest “{title}”.",
@@ -240,7 +252,12 @@ const TRANSLATIONS = {
     firstRunSoInspiredMissing: "So Inspired was not detected as an active module. Auto mode uses normal D&D 5e inspiration.",
     dragHint: "Drag the window by its header; resize it from the lower-right corner.",
     placeholderTitle: "e.g. The Missing Courier",
-    placeholderDescription: "What should the character do?"
+    placeholderDescription: "What should the character do?",
+    chooseSound: "Choose sound",
+    clearSound: "Remove sound",
+    noSoundSelected: "No sound selected",
+    selectedSound: "Selected sound",
+    filePickerUnavailable: "File browser unavailable or missing permission."
   },
   es: {
     questlog: "Registro de misiones",
@@ -251,6 +268,8 @@ const TRANSLATIONS = {
     moduleConfiguration: "Configuración del módulo",
     inspirationSystem: "Sistema de inspiración",
     language: "Idioma",
+    windowOpacity: "Transparencia de la ventana",
+    windowOpacityValue: "{value}% visible",
     soundAccept: "Sonido: misión aceptada",
     soundSuccess: "Sonido: misión completada",
     soundFailure: "Sonido: misión fallida",
@@ -302,7 +321,7 @@ const TRANSLATIONS = {
     modeStandard: "D&D 5e estándar: inspiración booleana",
     modeSoInspired: "So Inspired: inspiración acumulable",
     unknownPlayer: "Jugador desconocido",
-    exportDescription: "Exporta misiones, rutas de sonido, idioma y modo de inspiración como archivo JSON. La importación reemplaza las misiones actuales.",
+    exportDescription: "Exporta misiones, rutas de sonido, idioma, transparencia y modo de inspiración como archivo JSON. La importación reemplaza las misiones actuales.",
     importConfirm: "¿Reemplazar el registro actual por el archivo importado?",
     importSuccess: "Copia del registro importada.",
     exportSuccess: "Copia del registro creada.",
@@ -311,6 +330,7 @@ const TRANSLATIONS = {
     settingsSaved: "Configuración de DM Questlog guardada.",
     invalidInspirationMode: "Modo de inspiración no válido.",
     invalidLanguage: "Idioma no válido.",
+    invalidOpacity: "Valor de transparencia no válido.",
     questCreated: "La misión “{title}” fue creada.",
     fillRequired: "Completa jugador, título y descripción breve.",
     playerAcceptedQuest: "{player} aceptó la misión “{title}”.",
@@ -340,7 +360,12 @@ const TRANSLATIONS = {
     firstRunSoInspiredMissing: "So Inspired no fue detectado como módulo activo. El modo automático usa la inspiración normal de D&D 5e.",
     dragHint: "Arrastra la ventana por la cabecera; cambia su tamaño desde la esquina inferior derecha.",
     placeholderTitle: "p. ej. El mensajero desaparecido",
-    placeholderDescription: "¿Qué debe hacer el personaje?"
+    placeholderDescription: "¿Qué debe hacer el personaje?",
+    chooseSound: "Elegir sonido",
+    clearSound: "Quitar sonido",
+    noSoundSelected: "Ningún sonido seleccionado",
+    selectedSound: "Sonido seleccionado",
+    filePickerUnavailable: "Navegador de archivos no disponible o sin permiso."
   },
   fr: {
     questlog: "Journal de quêtes",
@@ -351,6 +376,8 @@ const TRANSLATIONS = {
     moduleConfiguration: "Configuration du module",
     inspirationSystem: "Système d'inspiration",
     language: "Langue",
+    windowOpacity: "Transparence de la fenêtre",
+    windowOpacityValue: "{value}% visible",
     soundAccept: "Son : quête acceptée",
     soundSuccess: "Son : quête réussie",
     soundFailure: "Son : quête échouée",
@@ -402,7 +429,7 @@ const TRANSLATIONS = {
     modeStandard: "D&D 5e standard : inspiration booléenne",
     modeSoInspired: "So Inspired : inspiration cumulable",
     unknownPlayer: "Joueur inconnu",
-    exportDescription: "Exporte les quêtes, chemins de sons, langue et mode d'inspiration en fichier JSON. L'import remplace les quêtes actuelles.",
+    exportDescription: "Exporte les quêtes, chemins de sons, langue, transparence et mode d'inspiration en fichier JSON. L'import remplace les quêtes actuelles.",
     importConfirm: "Remplacer le journal actuel par le fichier importé ?",
     importSuccess: "Sauvegarde du journal importée.",
     exportSuccess: "Sauvegarde du journal créée.",
@@ -411,6 +438,7 @@ const TRANSLATIONS = {
     settingsSaved: "Paramètres de DM Questlog enregistrés.",
     invalidInspirationMode: "Mode d'inspiration invalide.",
     invalidLanguage: "Langue invalide.",
+    invalidOpacity: "Valeur de transparence invalide.",
     questCreated: "La quête « {title} » a été créée.",
     fillRequired: "Veuillez renseigner joueur, titre et description courte.",
     playerAcceptedQuest: "{player} a accepté la quête « {title} ».",
@@ -440,7 +468,12 @@ const TRANSLATIONS = {
     firstRunSoInspiredMissing: "So Inspired n'a pas été détecté comme module actif. Le mode auto utilise l'inspiration normale D&D 5e.",
     dragHint: "Déplace la fenêtre par son en-tête ; redimensionne-la depuis le coin inférieur droit.",
     placeholderTitle: "p. ex. Le courrier disparu",
-    placeholderDescription: "Que doit faire le personnage ?"
+    placeholderDescription: "Que doit faire le personnage ?",
+    chooseSound: "Choisir un son",
+    clearSound: "Retirer le son",
+    noSoundSelected: "Aucun son sélectionné",
+    selectedSound: "Son sélectionné",
+    filePickerUnavailable: "Navigateur de fichiers indisponible ou permission manquante."
   }
 };
 
@@ -477,6 +510,17 @@ Hooks.once("init", () => {
     onChange: () => window.dmQuestLog?.render()
   });
 
+  game.settings.register(MODULE_ID, OPACITY_SETTING, {
+    name: "DM Questlog – Fenstertransparenz",
+    hint: "Legt fest, wie sichtbar das Questlog-Fenster ist. 100 % ist vollständig deckend, niedrigere Werte machen es transparenter.",
+    scope: "world",
+    config: true,
+    type: Number,
+    range: { min: 0.35, max: 1, step: 0.05 },
+    default: 0.97,
+    onChange: () => window.dmQuestLog?.render()
+  });
+
   game.settings.register(MODULE_ID, FIRST_RUN_SETTING, {
     name: "Erststart-Hinweis angezeigt",
     hint: "Interner Marker, damit der kurze Setup-Hinweis nur einmal angezeigt wird.",
@@ -492,6 +536,7 @@ Hooks.once("init", () => {
     scope: "world",
     config: true,
     type: String,
+    filePicker: "audio",
     default: `modules/${MODULE_ID}/sounds/accept.wav`,
     onChange: () => preloadConfiguredSounds()
   });
@@ -502,6 +547,7 @@ Hooks.once("init", () => {
     scope: "world",
     config: true,
     type: String,
+    filePicker: "audio",
     default: `modules/${MODULE_ID}/sounds/success.wav`,
     onChange: () => preloadConfiguredSounds()
   });
@@ -512,6 +558,7 @@ Hooks.once("init", () => {
     scope: "world",
     config: true,
     type: String,
+    filePicker: "audio",
     default: `modules/${MODULE_ID}/sounds/failure.wav`,
     onChange: () => preloadConfiguredSounds()
   });
@@ -634,6 +681,26 @@ function getSafeSetting(namespace, key, fallback = null) {
   }
 }
 
+function getFilePickerClass() {
+  const fvtt = globalThis.foundry;
+  return fvtt?.applications?.apps?.FilePicker ?? globalThis.FilePicker ?? null;
+}
+
+function canUseAudioFilePicker() {
+  const Picker = getFilePickerClass();
+  if (!Picker) return false;
+  if (game.user?.isGM) return true;
+
+  const possiblePermissions = ["FILES_BROWSE", "FILES_UPLOAD", "FILE_PICKER"];
+  return possiblePermissions.some(permission => {
+    try {
+      return game.user?.can?.(permission) === true;
+    } catch (_error) {
+      return false;
+    }
+  });
+}
+
 function isSoInspiredModuleActive() {
   return game.modules.get(SO_INSPIRED_ID)?.active === true;
 }
@@ -645,6 +712,12 @@ function isSoInspiredApiReady() {
 function getInspirationMode() {
   const mode = game.settings.get(MODULE_ID, INSPIRATION_MODE_SETTING);
   return Object.hasOwn(INSPIRATION_MODES, mode) ? mode : "auto";
+}
+
+function getWindowOpacity() {
+  const value = Number(game.settings.get(MODULE_ID, OPACITY_SETTING));
+  if (!Number.isFinite(value)) return 0.97;
+  return Math.min(Math.max(value, 0.35), 1);
 }
 
 function shouldUseSoInspired() {
@@ -922,12 +995,13 @@ function getExportData() {
   return {
     schema: "dm-questlog-backup",
     moduleId: MODULE_ID,
-    version: "0.5.0",
+    version: "0.5.1",
     exportedAt: new Date().toISOString(),
     state: getState(),
     settings: {
       inspirationMode: game.settings.get(MODULE_ID, INSPIRATION_MODE_SETTING),
       language: game.settings.get(MODULE_ID, LANGUAGE_SETTING),
+      windowOpacity: getWindowOpacity(),
       sounds: {
         accept: game.settings.get(MODULE_ID, SOUND_SETTINGS.accept),
         success: game.settings.get(MODULE_ID, SOUND_SETTINGS.success),
@@ -947,6 +1021,11 @@ async function applyImportedSettings(importData) {
 
   if (Object.hasOwn(LANGUAGE_CHOICES, settings.language)) {
     await game.settings.set(MODULE_ID, LANGUAGE_SETTING, settings.language);
+  }
+
+  const importedOpacity = Number(settings.windowOpacity ?? settings.opacity);
+  if (Number.isFinite(importedOpacity)) {
+    await game.settings.set(MODULE_ID, OPACITY_SETTING, Math.min(Math.max(importedOpacity, 0.35), 1));
   }
 
   const sounds = settings.sounds ?? settings;
@@ -989,6 +1068,7 @@ class DMQuestLogPanel {
     panel.classList.toggle("dmql-open", this.isOpen);
     panel.classList.toggle("dmql-collapsed", !this.isOpen);
     panel.classList.toggle("dmql-compact", this.isCompact);
+    panel.style.setProperty("--dmql-window-opacity", String(getWindowOpacity()));
 
     this._applyStoredLayout(panel);
 
@@ -1289,6 +1369,8 @@ class DMQuestLogPanel {
       const selected = key === currentLanguage ? "selected" : "";
       return `<option value="${key}" ${selected}>${escapeHTML(label)}</option>`;
     }).join("");
+    const opacity = getWindowOpacity();
+    const opacityPercent = Math.round(opacity * 100);
 
     return `
       <section class="dmql-card dmql-settings">
@@ -1304,18 +1386,14 @@ class DMQuestLogPanel {
               ${escapeHTML(tr("inspirationSystem"))}
               <select name="inspirationMode">${modeOptions}</select>
             </label>
-            <label>
-              ${escapeHTML(tr("soundAccept"))}
-              <input type="text" name="${SOUND_SETTINGS.accept}" value="${escapeHTML(game.settings.get(MODULE_ID, SOUND_SETTINGS.accept))}">
+            <label class="dmql-range-label">
+              <span>${escapeHTML(tr("windowOpacity"))}</span>
+              <input type="range" name="${OPACITY_SETTING}" min="0.35" max="1" step="0.05" value="${opacity}">
+              <small>${escapeHTML(tr("windowOpacityValue", { value: opacityPercent }))}</small>
             </label>
-            <label>
-              ${escapeHTML(tr("soundSuccess"))}
-              <input type="text" name="${SOUND_SETTINGS.success}" value="${escapeHTML(game.settings.get(MODULE_ID, SOUND_SETTINGS.success))}">
-            </label>
-            <label>
-              ${escapeHTML(tr("soundFailure"))}
-              <input type="text" name="${SOUND_SETTINGS.failure}" value="${escapeHTML(game.settings.get(MODULE_ID, SOUND_SETTINGS.failure))}">
-            </label>
+            ${this._renderSoundPickerField("accept", SOUND_SETTINGS.accept)}
+            ${this._renderSoundPickerField("success", SOUND_SETTINGS.success)}
+            ${this._renderSoundPickerField("failure", SOUND_SETTINGS.failure)}
             <button type="submit" class="dmql-primary">${escapeHTML(tr("saveSettings"))}</button>
           </form>
 
@@ -1336,6 +1414,33 @@ class DMQuestLogPanel {
           </div>
         </details>
       </section>
+    `;
+  }
+
+  _renderSoundPickerField(kind, settingKey) {
+    const value = String(game.settings.get(MODULE_ID, settingKey) ?? "");
+    const canBrowse = canUseAudioFilePicker();
+    const labelKey = {
+      accept: "soundAccept",
+      success: "soundSuccess",
+      failure: "soundFailure"
+    }[kind] ?? "selectedSound";
+
+    return `
+      <label class="dmql-sound-field ${canBrowse ? "" : "is-disabled"}">
+        <span>${escapeHTML(tr(labelKey))}</span>
+        <input type="hidden" name="${settingKey}" value="${escapeHTML(value)}">
+        <div class="dmql-file-picker" data-sound-kind="${escapeHTML(kind)}">
+          <span class="dmql-file-value" title="${escapeHTML(value || tr("noSoundSelected"))}">${escapeHTML(value || tr("noSoundSelected"))}</span>
+          <button type="button" data-action="pickSound" data-target="${settingKey}" data-type="audio" ${canBrowse ? "" : "disabled"}>
+            <i class="fas fa-folder-open"></i> ${escapeHTML(tr("chooseSound"))}
+          </button>
+          <button type="button" data-action="clearSound" data-target="${settingKey}" ${canBrowse ? "" : "disabled"}>
+            <i class="fas fa-ban"></i> ${escapeHTML(tr("clearSound"))}
+          </button>
+        </div>
+        ${canBrowse ? "" : `<small class="dmql-muted">${escapeHTML(tr("filePickerUnavailable"))}</small>`}
+      </label>
     `;
   }
 
@@ -1440,6 +1545,15 @@ class DMQuestLogPanel {
         this.render();
       });
     });
+
+    body.querySelectorAll(`input[type="range"][name="${OPACITY_SETTING}"]`).forEach(input => {
+      input.addEventListener("input", event => {
+        const opacity = Math.min(Math.max(Number(event.currentTarget.value), 0.35), 1);
+        document.getElementById("dmql-panel")?.style.setProperty("--dmql-window-opacity", String(opacity));
+        const output = event.currentTarget.closest("label")?.querySelector("small");
+        if (output) output.textContent = tr("windowOpacityValue", { value: Math.round(opacity * 100) });
+      });
+    });
   }
 
   async _onSaveSettings(event) {
@@ -1449,6 +1563,12 @@ class DMQuestLogPanel {
     const data = new FormData(event.currentTarget);
     const inspirationMode = String(data.get("inspirationMode") ?? "auto");
     const language = String(data.get(LANGUAGE_SETTING) ?? "de");
+    const opacity = Number(data.get(OPACITY_SETTING));
+
+    if (!Number.isFinite(opacity)) {
+      ui.notifications.warn(tr("invalidOpacity"));
+      return;
+    }
 
     if (!Object.hasOwn(INSPIRATION_MODES, inspirationMode)) {
       ui.notifications.warn(tr("invalidInspirationMode"));
@@ -1462,6 +1582,7 @@ class DMQuestLogPanel {
 
     await game.settings.set(MODULE_ID, LANGUAGE_SETTING, language);
     await game.settings.set(MODULE_ID, INSPIRATION_MODE_SETTING, inspirationMode);
+    await game.settings.set(MODULE_ID, OPACITY_SETTING, Math.min(Math.max(opacity, 0.35), 1));
 
     for (const settingKey of Object.values(SOUND_SETTINGS)) {
       await game.settings.set(MODULE_ID, settingKey, String(data.get(settingKey) ?? "").trim());
@@ -1513,6 +1634,8 @@ class DMQuestLogPanel {
     const action = button.dataset.action;
     const questId = button.dataset.questId;
 
+    if (action === "pickSound") return this._openSoundPicker(button);
+    if (action === "clearSound") return this._clearSoundPicker(button);
     if (action === "exportData") return this._exportData();
     if (action === "importData") return this._importData(button.closest(".dmql-settings"));
     if (action === "resetLayout") return this._resetLayout();
@@ -1585,6 +1708,54 @@ class DMQuestLogPanel {
         break;
       }
     }
+  }
+
+  _openSoundPicker(button) {
+    if (!canUseAudioFilePicker()) {
+      ui.notifications.warn(tr("filePickerUnavailable"));
+      return;
+    }
+
+    const Picker = getFilePickerClass();
+    const settingKey = button.dataset.target;
+    const field = button.closest(".dmql-sound-field");
+    const input = field?.querySelector(`input[type="hidden"][name="${settingKey}"]`);
+    const display = field?.querySelector(".dmql-file-value");
+
+    if (!Picker || !input || !display) {
+      ui.notifications.warn(tr("filePickerUnavailable"));
+      return;
+    }
+
+    const callback = path => {
+      const value = String(path ?? "");
+      input.value = value;
+      display.textContent = value || tr("noSoundSelected");
+      display.title = value || tr("noSoundSelected");
+    };
+
+    try {
+      const picker = new Picker({
+        type: "audio",
+        current: input.value,
+        callback
+      });
+      picker.render(true);
+    } catch (error) {
+      console.warn(`${MODULE_ID} | FilePicker konnte nicht geöffnet werden:`, error);
+      ui.notifications.warn(tr("filePickerUnavailable"));
+    }
+  }
+
+  _clearSoundPicker(button) {
+    const settingKey = button.dataset.target;
+    const field = button.closest(".dmql-sound-field");
+    const input = field?.querySelector(`input[type="hidden"][name="${settingKey}"]`);
+    const display = field?.querySelector(".dmql-file-value");
+    if (!input || !display) return;
+    input.value = "";
+    display.textContent = tr("noSoundSelected");
+    display.title = tr("noSoundSelected");
   }
 
   _exportData() {
