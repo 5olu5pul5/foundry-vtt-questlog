@@ -1,0 +1,34 @@
+{
+  "id": "dm-questlog",
+  "title": "DM Questlog",
+  "description": "Ein einfaches Questlog für D&D 5e: Der Spielleiter legt Spieler-Quests an, Spieler nehmen sie an oder lehnen sie ab, und erfolgreiche Quests vergeben Inspiration.",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Alexander Kramer / ChatGPT"
+    }
+  ],
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.351",
+    "maximum": "14"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "5.0.0",
+          "verified": "5.3.3"
+        }
+      }
+    ]
+  },
+  "esmodules": [
+    "scripts/dm-questlog.mjs"
+  ],
+  "styles": [
+    "styles/dm-questlog.css"
+  ]
+}

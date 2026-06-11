@@ -1,0 +1,240 @@
+#dmql-toggle {
+  position: fixed;
+  top: 116px;
+  right: 0;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 10px;
+  border: 1px solid var(--color-border-dark, #000);
+  border-right: 0;
+  border-radius: 8px 0 0 8px;
+  background: rgba(20, 20, 20, 0.92);
+  color: #f3e7c5;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+}
+
+#dmql-toggle:hover {
+  filter: brightness(1.15);
+}
+
+.dmql-panel {
+  position: fixed;
+  top: 88px;
+  right: 0;
+  z-index: 100;
+  width: 380px;
+  max-width: calc(100vw - 28px);
+  height: calc(100vh - 112px);
+  display: flex;
+  flex-direction: column;
+  background: rgba(24, 22, 19, 0.97);
+  color: #efe6d0;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-right: 0;
+  border-radius: 12px 0 0 12px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.55);
+  transition: transform 180ms ease-in-out;
+}
+
+.dmql-panel.dmql-collapsed {
+  transform: translateX(calc(100% + 12px));
+}
+
+.dmql-panel.dmql-open {
+  transform: translateX(0);
+}
+
+.dmql-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.dmql-header h2,
+.dmql-body h3,
+.dmql-quest h4 {
+  margin: 0;
+  color: #f7e4a4;
+}
+
+.dmql-close {
+  color: #efe6d0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.dmql-body {
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.dmql-card {
+  margin: 0 0 12px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.dmql-card label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.dmql-card input,
+.dmql-card textarea,
+.dmql-card select {
+  width: 100%;
+}
+
+.dmql-checkbox {
+  flex-direction: row !important;
+  align-items: center;
+  font-weight: normal !important;
+}
+
+.dmql-checkbox input {
+  width: auto;
+}
+
+.dmql-log h3 {
+  margin: 10px 0;
+}
+
+.dmql-quest-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.dmql-quest h4 {
+  line-height: 1.25;
+}
+
+.dmql-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.dmql-badge {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.13);
+  font-size: 11px;
+  color: #f0e6d2;
+}
+
+.dmql-badge.is-active {
+  background: rgba(90, 150, 255, 0.25);
+}
+
+.dmql-badge.is-inactive {
+  background: rgba(255, 255, 255, 0.08);
+  color: #c8c0b4;
+}
+
+.dmql-desc {
+  margin: 10px 0;
+  white-space: pre-wrap;
+}
+
+.dmql-result {
+  margin: 8px 0 0;
+  font-weight: 700;
+}
+
+.dmql-meta {
+  margin: 10px 0;
+  font-size: 12px;
+  color: #d8cfbf;
+}
+
+.dmql-meta div {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.dmql-meta dt {
+  font-weight: 700;
+}
+
+.dmql-meta dd {
+  margin: 0;
+}
+
+.dmql-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.dmql-actions button,
+.dmql-primary {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 5px;
+  padding: 5px 9px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f3ead8;
+  cursor: pointer;
+}
+
+.dmql-actions button:hover,
+.dmql-primary:hover {
+  filter: brightness(1.18);
+}
+
+.dmql-primary {
+  background: rgba(82, 132, 255, 0.35);
+}
+
+.dmql-danger {
+  background: rgba(180, 50, 50, 0.32) !important;
+}
+
+.dmql-muted {
+  color: #c9c0b2;
+  font-style: italic;
+}
+
+.dmql-quest.is-success {
+  border-color: rgba(96, 210, 120, 0.65);
+  background: rgba(33, 90, 40, 0.32);
+}
+
+.dmql-quest.is-success h4,
+.dmql-quest.is-success .dmql-result {
+  color: #8dff9c;
+}
+
+.dmql-quest.is-failed {
+  border-color: rgba(225, 70, 70, 0.7);
+  background: rgba(105, 22, 22, 0.34);
+}
+
+.dmql-quest.is-failed h4 {
+  color: #ff8e8e;
+}
+
+.dmql-quest.is-declined {
+  opacity: 0.72;
+}
